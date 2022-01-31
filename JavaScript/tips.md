@@ -7,3 +7,16 @@ https://developer.mozilla.org/ko/docs/Web/API
 https://developer.mozilla.org/ko/docs/Learn/JavaScript/First_steps/Useful_string_methods
 
 문자열 내용 ' ' 안에 표기
+
+### JS 공식 사이트
+
+https://ecma-international.org
+
+보통은 모질라 사이트를 활용
+
+https://developer.mozilla.org
+
+### async defer
+
+- async : 병렬로 js와 html의 데이터를 다운로드
+- defer : 병렬로 다운로드한 이후 실행은 html 로드 이후에 발생

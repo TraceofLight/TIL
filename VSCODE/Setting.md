@@ -1,4 +1,4 @@
-### Recommended Extension 정리
+## Recommended Extension 정리
 
 1. Material Theme
 
@@ -41,3 +41,10 @@
 - 커맨드 팔렛트에 > live Server: Open with Live Server 입력하고 숏컷키 후 실행
 
 10. Dracula Official 테마 설치
+
+## CSS 와 JS 연결하는 법
+
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js" defer></script>
+
+해당 방식으로 html 추가
