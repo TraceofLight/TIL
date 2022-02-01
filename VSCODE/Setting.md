@@ -42,6 +42,8 @@
 
 10. Dracula Official 테마 설치
 
+11. HTML to CSS autocompletion
+
 ## CSS 와 JS 연결하는 법
 
     <link rel="stylesheet" href="style.css">

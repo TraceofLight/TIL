@@ -20,3 +20,10 @@ https://developer.mozilla.org
 
 - async : 병렬로 js와 html의 데이터를 다운로드
 - defer : 병렬로 다운로드한 이후 실행은 html 로드 이후에 발생
+
+### Console log 출력이 안될 때
+
+https://ooz.co.kr/438
+
+콘솔창에 있는 필터 영역의 문제
+필터링 레벨을 낮춰보도록 하자
