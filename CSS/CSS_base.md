@@ -10,12 +10,14 @@ Line-height를 사이즈와 같게 정리할 것
 
 ### @media 활용하는 법
 
-#####https://developer.mozilla.org/ko/docs/Web/CSS/@media
+##### https://developer.mozilla.org/ko/docs/Web/CSS/@media
+
 screen and (max-width: 000px) {} 와 같은 방식으로 사용하는데 화면 너비에 따른 새 규칙이 적용됨
 
 ### nth-child()
 
-#####https://developer.mozilla.org/ko/docs/Web/CSS/:nth-child
+##### https://developer.mozilla.org/ko/docs/Web/CSS/:nth-child
+
 지정한 구문 내에서의 인덱스 순서를 따라간다
 따라서 지정한 클래스 다수 내부에서 각각의 룰을 따르며 외부의 영향을 받지 않는다.
 
@@ -32,7 +34,7 @@ Rotate 회전 Translate 좌표이동
 
 ### transition
 
-#####https://developer.mozilla.org/ko/docs/Web/CSS/CSS_Transitions/Using_CSS_transitions
+##### https://developer.mozilla.org/ko/docs/Web/CSS/CSS_Transitions/Using_CSS_transitions
 
 간단한 애니메이션 사용 300ms 가 자연스럽게 체감하는 효과로 좋음
 {transition: 항목 시간 효과;} 순으로 보통 활용
