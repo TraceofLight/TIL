@@ -27,3 +27,7 @@ https://ooz.co.kr/438
 
 콘솔창에 있는 필터 영역의 문제
 필터링 레벨을 낮춰보도록 하자
+
+### ${} 변환 해결하는 방법 (JSP의 경우)
+
+https://copycoding.tistory.com/245
