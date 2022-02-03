@@ -31,3 +31,18 @@ https://ooz.co.kr/438
 ### ${} 변환 해결하는 방법 (JSP의 경우)
 
 https://copycoding.tistory.com/245
+
+> 해당 방식으로 해결하지 못하여 이후 하단 해결책 확인
+
+### upperstrophy와 grave accent의 차이
+
+둘은 비슷하게 생겼는데 JS 작성 시 upperstrophy를 사용하면 string 인식이 안된다!!! 따라서 Quotation mark를 사용할 때는 주의가 필요함
+
+### break 와 continue 정리
+
+break는 조건 만족하는 시점에 바로 loop out
+continue는 조건을 만족하지 못하면 거기서 바로 끊고 loop의 다음을 반복
+
+### 이름 설정
+
+변수는 명사로, 함수는 동사나 커맨드 형태로
