@@ -59,3 +59,11 @@ https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Functions/argumen
 ### Local, Global Scope
 
 밖에서는 안이 보이지 않고 안에서만 밖을 볼 수 있다
+
+### 세미콜론의 필요성
+
+JS 에서 굳이 필요하진 않다
+ASI 라는 인터프리터의 세미콜론 자동 삽입을 거치기 때문이다
+세미콜론을 붙이면 안되는 위치도 존재함
+
+https://bakyeono.net/post/2018-01-19-javascript-use-semicolon-or-not.html
