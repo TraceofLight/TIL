@@ -46,3 +46,16 @@ continue는 조건을 만족하지 못하면 거기서 바로 끊고 loop의 다
 ### 이름 설정
 
 변수는 명사로, 함수는 동사나 커맨드 형태로
+
+### arguments 객체
+
+args
+https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Functions/arguments
+
+### JS에서 function은 object
+
+함수 뒤에 .을 붙이면 속성값을 확인할 수 있음
+
+### Local, Global Scope
+
+밖에서는 안이 보이지 않고 안에서만 밖을 볼 수 있다
