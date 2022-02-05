@@ -17,3 +17,8 @@
 - instance of a class
 - created many times
 - data in
+
+### inheritance
+
+- super 을 사용하여 기존 내용 사용
+- extend 명령어로 내용 변경 적용 후 사용 가능
