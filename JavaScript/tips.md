@@ -21,6 +21,11 @@ https://developer.mozilla.org
 - async : 병렬로 js와 html의 데이터를 다운로드
 - defer : 병렬로 다운로드한 이후 실행은 html 로드 이후에 발생
 
+#### defer 을 사용하지 않을 경우
+
+body 요소 가장 밑부분에 자바스크릡트를 위치
+HTML 요소들의 스크립트 로딩지연으로 인한 렌더링 문제가 없어 페이지 로딩 시간이 단축되며, DOM이 완성된 상태가 아닐 때 자바스크립트가 DOM을 조작할 경우 에러가 발생하기 때문
+
 ### Console log 출력이 안될 때
 
 https://ooz.co.kr/438
