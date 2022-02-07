@@ -22,3 +22,8 @@
 
 - super 을 사용하여 기존 내용 사용
 - extend 명령어로 내용 변경 적용 후 사용 가능
+
+### dot & computed properties
+
+dot 을 통해 접근할 땐 정해진 값이 고정되어 있을때 사용
+computed properties 를 통한 접근은 정확하게 어떠한 key 값이 필요한지 알 수 없을 때, runtime 에서 결정날 때 사용

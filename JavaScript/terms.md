@@ -9,3 +9,5 @@ parshing : 구문 분석
 DOM : Document Object Model
 
 ML이나 HTML 문서에 접근하기 위한 일종의 인터페이스이며 문서 내의 모든 요소를 정의하고, 각각의 요소에 접근하는 방법을 제공, 부합하는 계층 구조를 가지고 있음.
+
+iterable : member를 하나씩 차례로 반환 가능한 object

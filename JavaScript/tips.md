@@ -72,3 +72,23 @@ ASI 라는 인터프리터의 세미콜론 자동 삽입을 거치기 때문이�
 세미콜론을 붙이면 안되는 위치도 존재함
 
 https://bakyeono.net/post/2018-01-19-javascript-use-semicolon-or-not.html
+
+### key = value
+
+key 값에 value 값의 이름이 동일한 오브젝트를 받아오게 될 경우 둘 다 쓰지 않고 1개를 생략해도 인식한다.
+
+- ex)
+
+  function makePerson(name, age) {
+  return {
+  name,
+  age
+  }
+  }
+
+### cloning
+
+기본적으로 .. = .. 의 방식을 사용하면
+reference 값만 다르고 내부에 있는 object는 동일함
+
+빈 object를 먼저 생성한 이후 키 자체 value를 하나하나 복사하는 방법
