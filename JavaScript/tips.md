@@ -92,3 +92,7 @@ key 값에 value 값의 이름이 동일한 오브젝트를 받아오게 될 경
 reference 값만 다르고 내부에 있는 object는 동일함
 
 빈 object를 먼저 생성한 이후 키 자체 value를 하나하나 복사하는 방법
+
+### type
+
+type 이 있는 자료구조에서는 동일한 type 끼리만 data를 담을 수 있음 그러나 JS는 동적으로 타입이 정의가 가능하기 때문에 일단 다른 type 도 같은 class에 담는 것이 가능하다
