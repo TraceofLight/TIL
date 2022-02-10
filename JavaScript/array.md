@@ -6,7 +6,11 @@
 
 string의 표현을 반환
 
-### toString
+### join
+
+배열에 존재하는 모든 item을 연결하여 하나의 string으로 만들며, toString과 다르게 콤마가 아닌 다른 seperator 사용이 가능하다
+
+### toLocaleString
 
 string의 표현을 반환, 사용언어를 반영한다
 
@@ -33,10 +37,6 @@ string의 표현을 반환, 사용언어를 반영한다
 array 2개를 결합한다.
 기존에 array 2개에는 변화가 발생하지 않는다
 
-### join
-
-배열에 존재하는 모든 item을 연결하여 하나의 문자열로 만든다
-
 ### reverse
 
 item들 배치의 앞과 뒤를 전환한다
@@ -48,6 +48,7 @@ array를 시작점과 종료점을 기준으로 잘라낸다
 ### sort
 
 array를 유니코드 코드 포인트에 따라서 정렬
+a-b 는 a부터 작은 순서대로 정렬
 
 #### (유니코드 코드 포인트)
 
@@ -88,7 +89,7 @@ array 내의 item을 각각 나열
 
 ### reduce
 
-배열의 각 요소에 대하여 reducer 함수를 실행하고 결과값 하나를 반환
+배열의 각 요소에 대하여 reducer 함수를 실행하고 결과값 하나를 반환, 일종의 결과값 누적이 가능하다
 
 ### reduceRight
 
