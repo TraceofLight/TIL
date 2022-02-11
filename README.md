@@ -11,3 +11,9 @@ https://docs.github.com/en/get-started/writing-on-github/getting-started-with-wr
 ### Commit History 확인하는 법
 
 https://lts0606.tistory.com/517
+
+![Logo](/logo.png)
+
+### 이미지 파일 담는 법
+
+'\!\[text\]\(link\) 형태의 구문을 활용하여 이미지를 담을 수 있다.
