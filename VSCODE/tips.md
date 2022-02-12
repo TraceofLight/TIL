@@ -14,3 +14,9 @@ javascript.validate.enable = false로 바꿔주자.
 vs code인 경우엔 Ctrl + ,로 javascript.validate.enable를 검색하면 바로 나온다.
 
 출처: https://zereight.tistory.com/132
+
+### prettier 적용 불가능한 오류
+
+VSCode > Preference (cmd+,) 들어가서 'Default Formatter'를 검색
+아래 설정이 null로 되어있을 텐데, 이를 'enbenp.prettier-vscode'로 고쳐준다.
+출처: https://nuggy875.tistory.com/110
