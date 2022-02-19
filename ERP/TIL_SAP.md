@@ -267,3 +267,125 @@ incomplete의 경우는 length와 decimals 등을 통해 길이의 지정이 필
 
 - complete : D (날짜), T (시간), I (정수)
 - incomplete : C (문자), N (숫자), P (소수)
+
+## 2주차 정리
+
+incomplete type data
+type p decimals
+length는 전체 길이 length\*2 -1 , decimal은 소수자릿수만큼
+
+data type 2 종류
+
+local data type 특정 프로그램에서만 확인할 수 있는 데이터타입
+global data type abap dictionary 에 정의된 데이터 타입
+
+ABAP Dictionary
+
+Data element
+Structure  
+Table type
+
+like : 선언된 변수랑 동일한 변수를 만든다는 명령어
+
+naming rule
+DATA gv_xxxxx 글로벌 변수 시
+DATA iv_xxxxx 로컬 변수 시
+
+(-) 음수 기호가 출력 시에 뒤에 출력되지만 입력 시에는 앞에 정상입력하여야 한다.
+
+상수 : 한번 값이 할당된다면 해당 변수의 값을 바꿀 수 없는 특별한 변수.
+
+text symbol : 다국어를 처리할 때 사용하는 오브젝트
+
+text-<xxx> 3자리 ID
+
+clear NAME 변수의 초기상태로 만드는 명령어
+
+strlen( gv_string ) 변수 길이 출력
+
+system fields
+
+sy-subrc : 바로 앞 문장에 종속적인 값을 가지는 system field임.
+
+SQL (Standard Query Language)
+사용 목적 : 회사의 모든 데이터를 가지고 있는 Database는 오직 해당 데이터만 알아들음.
+
+\*우리 회사에 이름이 홍길동인 직원의 나이는 몇 살인가요? (Database에 질문)
+SELECT age FROM employee WHERE name = '홍길동'
+
+CALL function
+
+IF.
+"함수 호출을 잘 했다."
+ELSE
+"함수 호출하다가 에러가 발생했다."
+
+ENDIF.
+SCARR: 테이블( = 데이터를 담고 있는 곳) : 항공사 테이블
+
+SE11 > SCARR
+
+질문 : 우리 회사에서 관리하는 항공사 모두 몇 개 있나요? 18개
+
+Database에게 물어봄
+
+> SELECT COUNT( \* ) FROM SCARR. => 18
+> SELECT CURRCODE FROM SCARR WHERE CARRID = 'SR' => CHF
+
+Dialog Message
+사용 목적 : Status Bar에 메세지를 출력하기 위해서
+종류 : 6가지
+S : Success
+E : Error
+I : Information (팝업으로 나타남)
+
+ABAP Debugger
+
+F5 ~ F8까지 사용
+
+F5 : 모듈 안으로 이동
+F6 : 다음 명령어로 이동
+F7 : 해당 모듈 밖으로 나가기 ( = 모듈 호출한 다음 라인으로 이동 )
+F8 : 프로그램 끝까지 실행
+
+디버깅 : 프로그램을 구동하면서, 프로그램의 상태를 파악하는 툴이자 행위
+
+1. 상단 Stop 버튼 클릭
+2. command field에 /h 입력해서
+3. Break_point 기입 in source
+
+Module
+
+- 정의 : 재사용이 가능한 프로그램 로직 블럭
+
+1. Local Module
+   해당 프로그램에서만 사용 가능
+
+   > Subroutine, Local Class
+
+2. Global Module
+   모든 프로그램이 재사용 가능
+   > Function Module, Global Class
+
+프로그램이 모듈을 호출하기 위해서는 파라미터를 통해
+데이터를 주고 받아야 한다.
+
+sum값 호출 부분도 서브루틴으로 변경 후 호출
+서브루틴 이름: write_sum으로 정의
+
+using value(f1) type i > call by value
+using f1 type i > call by ref
+changing f1 type i > call by ref
+
+펑션그룹 : ZMATH##
+함수이름 : ZCALCULATE##
+사칙연산을 수행하는 함수 생성
+입력파라미터 3개
+I_NUM1 : INT1
+I_NUM2 : INT1
+I_OPERATOR : CHAR01
+
+출력 파라미터 1개
+E_RESULT : INT4
+
+RFC 함수 (Remote Function Call)
