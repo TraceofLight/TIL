@@ -13,7 +13,7 @@
 - 코드 포멧팅
 - ctrl + 눌러서 setting 창으로 이동
 
-4. Bracket Pari Colorizer
+4. Bracket Pair Colorizer
 
 - 괄호마다 코드에 색깔을 다르게 줌
 
