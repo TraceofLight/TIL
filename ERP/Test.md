@@ -164,3 +164,207 @@ ABAP에서 local class를 정의할 때, 반드시 따라야 하는 구문의 �
 selection 필드의 파라미터 필드의 기본값을 덮어 쓸 수 있는 건 어떤 event block에서 가능한가? :
 
 - INITIALIZATION
+
+input field 의 documentation을 스크린에 유지할 수 있는 방법? :
+
+- underlying data element에 documentation을 추가한다.
+
+ABAP Dictionary 에서 테이블 타입을 정의할 때 어떠한 properties가 세팅되는가? :
+
+- Line type, Primary key, Access mode
+
+ABAP Dictionary를 사용할 목적? :
+
+- To activate logging for transparent tables
+- To create lock objects
+
+2개의 테이블에서 데이터를 선택하고 결과를 structure에 저장하고자 한다. TABLE PARTNER는 필드 PART_ID, KIND를 포함하고 있으며, CONTACT는 CONT_ID, CONT_TYPE, DIVISION의 필드를 포함하고 있다. structure는 이하와 같이 정의되어 있다.
+
+```{
+DATA : BEGIN OF wa_result,
+Part_id type partner-part_id,
+cont_id type contract-cont_id,
+Cont_type TYPE contract-cont_type,
+END of wa_result,
+Lt_result type table of wa_result
+```
+
+어떻게 외부 참여가 있는 이하의 SELECT statement 를 대체할 수 있을까?
+
+```{
+SELECT part_id from partner INTO wa_result WHERE kind = 'Residential'.
+SELECT cont_id form CONTRACT into wa_result-cont_id WHERE part EQ wa_partner-part_id and DIVISION eq 'Water'.
+Append wa_result to lt_result.
+ENDSELECT.
+If sy-subrc<>0. CLEAR wa_result-cont_id APPEND wa_result TO lt_result.
+ENDIF.
+ENDSELECT.
+```
+
+- SELECT part_idcont_id from partner AS A LEFT JOIN contract AS b ON a~part_id = b~part_id INTO CORRESPONDING FIELDS OF TABLE lt_result WHERE kind = 'Residential' and AND division EQ 'Water'.
+
+SAP 표준 어플리케이션에서 GUI 상태를 증진시킬 것을 요청 받았다. 어떤 메뉴 나가기 함수가 코드를 사용할 수 있는지 어떻게 알아낼 것인가? :
+
+- (+) 기호로 시작하는 것을 찾는다.
+
+C data type의 표준 길이는 무엇인가? :
+
+- 1
+
+z1 데이터 참조를 일반적으로 정의했습니다. 참조된 변수의 내용에 접근하기 위해 어떤 statement를 사용하겠습니까? :
+
+- Assign z1 -> \* to \<fs>
+
+여러가지 프로그램에 사용될 수 있는 코드를 짜야 한다. SAP에서 추천하는 기술은 다음 중 어느 것인가? :
+
+- function group의 function module을 사용한다
+- global 클래스의 method를 사용한다.
+
+transparent table을 만들고 싶다. table을 활성화하기 위해 어떤 것을 반드시 정의해야 하는가? :
+
+- 간단한 설명
+- delivery 클래스
+- primary key
+
+static constructor 를 만들 때 반드시 따라야 하는 법칙 2가지? :
+
+- public으로 method를 반드시 정의해야 한다.
+- parameters를 정의할 수 없다.
+
+시스템의 업그레이드 이후 수정 조정을 수행하는 데 사용할 수 있는 transaction은 무엇입니까? :
+
+- SPAU, SPDD
+
+container에 있는 것과 full screen으로 보여주는 것의 차이는 무엇입니까? :
+
+- 어떤 타입의 ALV라도 event handling의 사용이 허가된다.
+- 컨테이너는 추가 오브젝트의 사용이 요구된다. (a container control)
+
+transparent table에 CURR 타입의 필드를 추가하고 싶다. 어떤 행동을 더 해야 하는가? :
+
+- CUKY 타입 필드에 대한 참조레퍼런스를 만든다.
+
+SAP 어플리케이션 레이어에 속한 구성요소? :
+
+- ABAP dispatcher
+- Database interface
+
+ABAP declaration 을 data elements S_CARR_ID를 사용하여 작성 중이다. data object를 맞게 정의하고 있는 statemnets는 어느 것인가? :
+
+- CONSTANTS gc_qf TYPE s_carr_id VALUE 'QF'
+- DATA gv_id TYPE s_carr_id
+
+클래스가 이하와 같이 정의되어 있다. 해당 클래스의 어떤 구성요소가 static method 'static1' 이 직접 주소를 지정이 가능합니까? :
+
+```{
+CLASS my_class DEFINITION.
+PUBLIC SECTION.
+METHODS do_something.
+EVENTS state_changed.
+CLASS-METHODS static1.
+PRIVATE SECTION.
+TYPES t table TYPE STANDARD TABLE OF t001 WITH NON-UNIQUE DEFAULT KEY.
+CONSTANTS gc_const TYPE IVALUE 1.
+ENDCLASS.
+```
+
+- gc_const constant
+- t_table type
+
+SAP 시스템에서 가능한 인터페이스 기술? :
+
+- RFC
+- HTTP
+- OLE
+
+고객 패키지를 위한 소프트웨어의 구성요소로는? :
+
+- HOME
+
+database view A 를 정의하고 ABAP Dictionary 내 view B를 점검하고 있다. 이렇게 볼 때 어떤 제한사항이 적용됩니까? :
+
+- A만 SELECT statement의 FROM 절에서 사용될 수 있다.
+- B에 join된 테이블은 반드시 foreign key 관계를 가지고 있어야 한다.
+
+SELECT에 ENDSELECT가 필요치 않을 때? :
+
+- 테이블 확장을 지정했을 때
+- SELECT SINGLE 했을 때
+- 테이블에 지정했을 때
+
+function module이 제공하는 매개변수 타입? :
+
+- Input
+- Output
+- Input/Output(changing)
+- Exceptions
+
+pre-defined된 ABAP 데이터 타입 중 deep한 것? :
+
+- STRING
+
+Code Inspector를 구동할 때 어떤 매개변수를 세팅할 수 있는가? :
+
+- Inspection name
+- Object set name
+- Check varient name
+
+remote function call을 통해 외부 시스템에서 call 될 function module을 작성중이다. 어떻게 외부 발신자에게 에러 리포트를 발송할 수 있는가? :
+
+- Error Data를 레퍼런스 참조를 통해 패스될 테이블 파라미터에 에러데이터를 작성한다.
+
+많으면 몇 개까지 화면에 메뉴를 가지고 있을 수 있는지? :
+
+- 15개
+
+이하의 표현을 ABAP 프로그램이 처리중이다. 다음 중 어떤 데이터 선언이 런타임 환경에 고정 소수점 산술을 사용하도록 초래하는가? :
+
+```{
+  r = a / b + c
+```
+
+- DATA : r TYPE p DECIMALS 2, a TYPE iVALUE 201, b TYPE iVALUE 200, c TYPE p.
+
+다음 중 유저 인터페이스로 데이터베이스 데이터를 이동시키기 위해 웹 동적 프로그래밍 어플리케이션에서 사용되는 것? :
+
+- Interface controller
+- Context node
+
+해당 클래스의 static method의 보충에 접근이 가능한 구성요소의 클래스? :
+
+- Constants
+- Types
+
+초기화면으로부터 스크린 시퀸스를 끝내고 시작하는 명령문? :
+
+- SET SCREEN 0
+
+데이터베이스로 옮겨졌을 때 VB\* 테이블로 변경되는 때? :
+
+- update works process 가 실행되었을 때
+
+내부 테이블로의 접속 시간의 향상을 가져오는 boundary 조건? :
+
+- Fully qualified key for sorted tables
+- Index access for standard tables
+- Left justified part of key for sorted tables
+
+SAP 시스템에서 글로벌 데이터 타입은 어떻게 정의되는가? :
+
+- ABAP Dictionary types
+
+문자열의 공백을 문자A로 덮어써야 할 때 이하 명령문 중 어떤 것을 사용할 수 있는가? :
+
+- OVERLAY
+- TRANSLATE
+- REPLACE
+
+ABAP 프로그램에서 이하와 같은 코드 시퀸스를 가지고 있다. 할당된 메모리 영역을 캐스팅하는 데에 사용하는 유형은 어떤 것인가?
+
+```{
+DATA var TYPE n LENGTH 1.
+FIELD -SYMBOLS <fs> TYPE c
+ASSIGN var TO <fs> CASTING
+```
+
+- The type of var
