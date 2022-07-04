@@ -368,3 +368,57 @@ ASSIGN var TO <fs> CASTING
 ```
 
 - The type of var
+
+다음 중 사용하는 명령문 :
+
+- SELECT ... FROM a LEFT OUTER JOIN b ...
+
+type 클래스 C1 의 O1, type 클래스 C2 의 O2 2가지 오브젝트를 가지고 있다. 클래스 C2는 C1의 서브 클래스이다. 다음 중 up cast를 보충하는 명령문은 무엇인가?
+
+- O1 = O2
+
+이미 transaction code가 연결된 프로그램에 변화를 주고 있다. 동료가 너의 development system에서 transaction을 테스트하고 있다. 테스트될 프로그램이 버전이 변경되는 시점은 언제인가?
+
+- 프로그램을 Active할 때
+
+buffer table을 결정하기 전에 고려해야할 사항? :
+
+- buffer에서 읽어들이는 데이터가 최신이 아닐 수 있음
+
+퍼포먼스를 위해 어떤 매개변수를 지나는 방법이 선호되는가? :
+
+- 레퍼런스(참조)를 지나는 것
+
+s_conn_id 데이터 엘리먼츠의 타입을 가진 데이터 오브젝트 를 정의하는 명령문은 어느 것인가? :
+
+- CONSTANTS gc_id TYPE s_conn_id VALUE '0400'.
+- DATA gv_id TYPE s_conn_id.
+- PARAMETERS pa_id TYPE s_conn_id.
+
+generic character-type CLIKE에 적합한 ABAP data type?
+
+- STRING
+- C
+- N
+
+Dialog 화면을 만들 수 있는 프로그램 타입? :
+
+- Module pool
+- Function group
+- Executable program
+
+SAP 표준 테이블을 위한 append 구조를 만들 때 전제조건? :
+
+- append 구조의 필드는 YY 또는 ZZ로 시작
+- 테이블의 Enhancement 카테고리는 'not enhancable'이 되면 안된다.
+
+고객에게 argument 의 value를 ABAP Dicionary 타입으로 변환하기 위한 Open SQL 코드를 개발해줄 것을 요청받았다.
+요구조건을 맞추기 위해 어떤 SQL 구문을 사용해야 하는가? :
+
+- CAST(arg AS type)
+
+non-exclusive debugging mode 가 의미하는 것? :
+
+- commit으로 인한 일관성이 없는 데이터세트가 데이터베이스에서 발생할 수 있다.
+- COMMIT을 사용해서 데이터베이스 커서가 닫혀야 하기 때문에 SELECT와 ENDSELECT 명령문 사이는 디버깅이 불가능하다.
+- 각각의 Debugger view 이후 어플리케이션에서 rollout이 강제된다.
