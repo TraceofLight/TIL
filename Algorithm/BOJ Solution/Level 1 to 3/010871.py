@@ -8,5 +8,10 @@ if int(len(list_element)) > n :
 for i in range(len(list_element)) :
     if int(list_element[i]) < x :
         list_number.append(list_element[i])
-for j in range(len(list_number)) :
-    print(list_number[j], end=' ')
+trigger = 0
+counter = 0
+while trigger == 0 :
+    print(list_number[counter], end = ' ')
+    counter = counter + 1
+    if counter == len(list_number) :
+        trigger = 1
