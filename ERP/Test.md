@@ -422,3 +422,18 @@ non-exclusive debugging mode 가 의미하는 것? :
 - commit으로 인한 일관성이 없는 데이터세트가 데이터베이스에서 발생할 수 있다.
 - COMMIT을 사용해서 데이터베이스 커서가 닫혀야 하기 때문에 SELECT와 ENDSELECT 명령문 사이는 디버깅이 불가능하다.
 - 각각의 Debugger view 이후 어플리케이션에서 rollout이 강제된다.
+- conversion이나 field exit을 위한 디버깅이 불가능하다.
+
+불완전한 ABAP pre-defined data type인 것은?
+
+- N
+- x
+- P
+
+ABAP Debugger에서 바꿀 수 있는 것은?
+
+- internal table의 컨텐츠
+
+transaction code ZZZZ과 연결된 프로그램에 변화를 주려고 한다. 동료가 동일한 시스템에서 ZZZZ 프로그램을 테스트 중일 때 어떤 변화가 Code ZZZZ에 가시적으로 나타내는가?
+
+- 프로그램을 Activate 했을 때
