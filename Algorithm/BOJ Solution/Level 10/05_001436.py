@@ -14,9 +14,23 @@ while True :
         b = ''.join(six)
         number_list.append(b)
     for i in range(len(number_list)) :
-        print(number_list)
+        number_element = list(number_list[i])
+        number_element = [int(i) for i in number_element]
+        number_element.reverse()
+        for j in range(number_element.count(0)) :
+            while True :
+                if number_element.index(0) == None :
+                    break
+                for k in range(9) :
+                    new_element = number_element
+                    new_element[number_element.index(0)] = k
+                    new_output = ''.join(new_element)
+                    output.append(new_output)
+                new_element[number_element.index(0)] = 'a'
+        print(number_element)
     if len(output) >= number :
         break
+    break
     """
     for i in range(len(six)) :
         if i == len(six) :
@@ -33,4 +47,4 @@ while True :
         six.insert(0, '#')
     break
     """
-print(six(-1))
+print(six[-1])
