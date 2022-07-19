@@ -23,10 +23,10 @@ for i in range(number) :
             new_layer.append(line1)
         plane = new_layer
         output_list.append(new_layer)
-    for o in range(n) :
-        a_ = output_list[0][o]
-        b_ = output_list[1][o]
-        c_ = output_list[2][o]
+    for j in range(n) :
+        a_ = output_list[0][j]
+        b_ = output_list[1][j]
+        c_ = output_list[2][j]
         a = ''.join(str_list(a_))
         b = ''.join(str_list(b_))
         c = ''.join(str_list(c_))
