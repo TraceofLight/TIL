@@ -55,6 +55,8 @@ def keyword_arguments(**kwargs):
 print(keyword_arguments(인사='안녕', 이름='민수', 강아지= '멍멍'))
 ```
 
+
+
 ## - Function vs Method
 
 메서드는 클래스 "내부에 작성된 함수"
@@ -122,3 +124,9 @@ isdigit의 경우 단일 글자가 숫자 형태일 경우 True
 isdecimal은 해당 문자열이 int로 변환이 가능한지 check 해서 가능하면 True
 
 
+
+## - 함수의 메인 역할
+
+기능을 분해하고 재사용할 수 있도록 하는 것
+
+Decompostion > Abstraction
