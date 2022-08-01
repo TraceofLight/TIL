@@ -3,19 +3,20 @@ import sys
 word = list(enumerate(sys.stdin.readline()))
 print(word)
 commandLine = int(sys.stdin.readline())
-cursor = len(word)
+length = len(word)
+cursor = length
 memory = []
 memory_cursor = []
 counter = 0
 for i in range(commandLine) :
-    inputCommand = input()
+    inputCommand = sys.stdin.readline()
     if inputCommand == 'L' :
         if cursor == 0 :
             continue
         else :
             cursor -= 1
     elif inputCommand == 'D' :
-        if cursor == len(word) :
+        if cursor == length :
             continue
         else :
             cursor += 1
