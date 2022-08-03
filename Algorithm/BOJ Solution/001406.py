@@ -72,4 +72,55 @@ for i in range(commandLine) :
         cursor = cursor + len(real_input)
 
 print(word)
+
+import sys
+from collections import deque
+
+word = deque(list(sys.stdin.readline()))
+word.pop()
+commandLine = int(input())
+length = len(word)
+cursor = length
+for i in range(commandLine) :
+    command = input()
+    command = command.rstrip('\n')
+    if command == 'L' :
+        if cursor == 0 :
+            continue
+        else :
+            cursor -= 1
+    elif command == 'D' :
+        if cursor == length :
+            continue
+        else :
+            cursor += 1
+    elif command == 'B' : 
+        if cursor == 0 :
+            continue
+        else :
+            tmp = []
+            for i in range(length - cursor) :
+                tmp.append(word.pop())
+            word.pop()
+            for i in range(length - cursor) :
+                word.append(tmp.pop())
+            cursor -= 1
+            length -= 1
+    elif command.startswith('P ') :
+        command = command.lstrip('P ')
+        tmp = []
+        for i in range(cursor, length) :
+            tmp.append(word.pop())
+            command_counter = 0
+        for letter in command :
+            word.append(letter)
+            command_counter += 1
+        for i in range(length - cursor) :
+            word.append(tmp.pop())
+        length += command_counter
+        cursor += command_counter
+        continue
+
+print(*word, sep ='')
+
 '''
