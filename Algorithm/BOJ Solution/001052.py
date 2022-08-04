@@ -1,11 +1,17 @@
 n, k = list(map(int,input().split()))
-output = []
+cup_count = 0
 cup = 0
-while k > output :
-    if n == output :
-        while True :
-            pass
-    output.append(n // 2 + n % 2)
-
-def findcup(n, cup, output) :
-    pass
+cup_stats = []
+while k > cup :
+    if n == 0 and cup_count <= k:
+        print(cup)
+        break
+    else :
+        counter = 0
+        while n > 2**counter :
+            counter += 1
+            cup_count += 1
+        n = n - 2**(counter - 1)
+if cup_count > k :
+    n += 1
+    cup += 1

@@ -1,13 +1,70 @@
 import sys
 
-word = list(enumerate(sys.stdin.readline()))
-print(word)
+class Node :
+    def __init__(self, data=None) :
+        self.data = data
+        self.nextval = None
+
+class Linkedlist :
+    def __init__(self) :
+        extra = Node('extra')
+        self.head = extra
+        self.tail = extra
+        self.current = None
+        self.before = None
+
+    def listprint(self) :
+        printval = self.headval
+        while printval is not None :
+            print(*printval.data, end = '')
+            printval = printval.nextval
+
+    def append(self, data):
+        new_node = Node(data)
+        self.tail.next = new_node
+        self.tail = new_node
+
+
+    def delete(self):
+        pop_data = self.current.data
+        if self.current is self.tail:
+            self.tail = self.before
+        self.before.next = self.current.next
+        self.current = self.before
+        return pop_data
+
+    def forward(self):
+        if self.current.next == None:
+            return None
+        self.before = self.current
+        self.current = self.current.next
+
+        return self.current.data
+
+    def back(self):
+        if self.current.before == None:
+            return None
+        self.current = self.before
+        self.current.next = self.current
+
+        return self.current.data
+
+word_unrefined = sys.stdin.readline()
+word_unrefined.rstrip(' \n')
+word = list(word_unrefined)
 commandLine = int(sys.stdin.readline())
 length = len(word)
 cursor = length
-memory = []
-memory_cursor = []
 counter = 0
+
+Linkedlist1 = Linkedlist()
+
+for letter in word :
+    Linkedlist1.append(letter)
+
+for node in Linkedlist1 :
+    print(node.data)
+
 for i in range(commandLine) :
     inputCommand = sys.stdin.readline()
     if inputCommand == 'L' :
@@ -28,16 +85,7 @@ for i in range(commandLine) :
             cursor -= 1
     elif inputCommand.startswith('P') == True :
         real_input = inputCommand.lstrip('P ')
-        memory.append(real_input)
-        memory_cursor.append(real_input)
-        cursor = cursor + len(real_input)
-        print(memory, memory_cursor)
 
-for i in len(word) :
-    print(word[i], sep = '', end = '')
-    if i in memory_cursor :
-        counter += 1
-        print(memory[counter - 1], sep = '', end = '')
 
 '''
 word = list(input())

@@ -1,4 +1,21 @@
-decimal = [2, 3, 5, 7]
+from math import ceil, floor
+
+
+def decimals(a) :
+    if a < 10 :
+        if not a in [2, 3, 5, 7] :
+            return False
+        else :
+            return True
+    else : 
+        decimal_list = decimals(floor(a**(1/2)))
+        for element in decimal_list :
+            if decimals(element) == False :
+                pass
+            if a % element != 0 :
+                return False
+            
+
 number = input().split()
 m = int(number[0])
 n = int(number[1])
