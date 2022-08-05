@@ -50,3 +50,30 @@ for i in range(number) :
             number_info.append([number_list[i + counter], number_list[i], i + counter])
             continue
 '''
+
+import sys
+
+number = int(input())
+number_list = list(map(int,sys.stdin.readline().split()))
+output = []
+
+for i in range(number) :
+    output.append([number_list[i], 0])
+    if i == 0 :
+        continue
+    elif number_list[i] > number_list[i - 1] :
+        bigNumber = number_list[i][0]
+        counter = -1
+        while True :
+            counter -= 1
+            print(counter)
+            if number_list[i] < bigNumber and number_list[i] != 1 :
+                output[counter] = [bigNumber, 1]
+            if number_list[i] > bigNumber or counter == - (i + 1) :
+                break
+    if i == number - 1 :
+        for j in range(number) :
+            if output[j][1] == 0 :
+                output[j] = [-1, 1]
+
+print(*[i[0] for i in output])
