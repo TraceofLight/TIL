@@ -1,31 +1,36 @@
 import sys
 
-number_get = int(input())
-list_number = list(map(int,sys.stdin.readline().split()))
-number_check = int(input())
-list_check = sorted(list(map(int,sys.stdin.readline().split())))
+number_n = int(input())
+list_n = list(map(int,sys.stdin.readline().split()))
+number_m = int(input())
+list_m = sorted(enumerate(list(map(int,sys.stdin.readline().split()))), key= lambda x : x[1])
+list_output = [0 for i in range(number_m)]
 
-def binarySearch(value, a) :
-    length = len(a)
+def binarySearch(value, number_list, start, end) :
+    if start > end :
+        return None
+
+    length = end - start + 1
+
     if length == 1 :
-        if a[0] == value :
-            return 1
+        if value != number_list[start][1] :
+            return None
         else :
-            return 0
-    elif length == 0 :
-            pass
-    elif a[length // 2] == value :
-            return 1
+            return number_list[start][0]
+
     else :
-        try :
-            binarySearch(value,a[length // 2 -1 :])
-            binarySearch(value,a[: length // 2 + 1])
-        except :
-            pass
+        target = length // 2
+        if number_list[start + target][1] < value :
+            return binarySearch(value, number_list, start + target + 1, end)
+        elif number_list[start + target][1] > value :
+            return binarySearch(value, number_list, start, start + target - 1)
+        else :
+            return number_list[start + target][0]
 
-output = []
+for number in list_n :
+    try :
+        list_output[binarySearch(number, list_m, 0, number_m - 1)] += 1
+    except :
+        continue
 
-for number in list_check :
-    output.append(binarySearch(number, list_number))
-
-print(*output)
+print(*list_output)
