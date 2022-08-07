@@ -1,40 +1,47 @@
 n, k = list(map(int,input().split()))
-cup = []
+bottle = []
 counter = 0
-need_cup = 0
+need_bottle = 0
 checker = False
 
-while n > 0 :
-    if n < 2 ** (counter + 1) :
-        cup.append(counter)
-        n = n - 2 ** counter
-        counter = 0
-    else :
-        counter += 1
+n_raw = bin(n)
+bottle = list(n_raw.lstrip('0b'))
+length = len(bottle)
 
-now_cup = len(cup)
+for i in range(length) :
+    bottle[i] = int(bottle[i]) * (2 ** ((length - 1) - i))
 
-while now_cup > k :
-    if now_cup > 0 :
-        low_number = cup.pop()
-        need_cup += 2 ** (low_number)
-        cup.append(low_number + 1)
-        if now_cup > 2 :
-            new_counter = 1
-            while cup[-1] == cup[-2] :
-                cup.pop()
-                cup.append(cup.pop() + 1)
-                now_cup -= 1
-                if now_cup < 2 :
-                    break
-        if now_cup <= 0 and now_cup :
-            print(-1)
-            checker = True
-            break
-    else :
-        print(-1)
+try :
+    while True :
+        bottle.remove(0)
+except :
+    pass
+
+length_bottle = len(bottle)
+now_bottle = len(bottle)
+
+while True :
+    if k == 0 :
         checker = True
+        print(-1)
+        break
+    while now_bottle > k and length_bottle != 0 :
+        add_bottle = bottle.pop()
+        need_bottle += add_bottle
+        bottle.append(2 * add_bottle)
+        if length_bottle < 2 :
+            continue
+        while bottle[-1] == bottle[-2] :
+            bottle.pop()
+            bottle.append(2 * bottle.pop())
+            length_bottle -= 1
+            now_bottle -= 1
+            if length_bottle < 2 :
+                break
+        if now_bottle <= k :
+            break
+    if now_bottle <= k :
         break
 
 if checker == False :
-    print(need_cup)
+    print(need_bottle)

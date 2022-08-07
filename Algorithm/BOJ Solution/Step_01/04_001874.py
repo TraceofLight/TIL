@@ -1,6 +1,24 @@
 number = int(input())
+complete = []
+for i in number :
+    complete.append(int(input()))
 stack1 = []
 output = []
+counter = 0
+
+while output != complete :
+    for i in range(number) :
+        counter = 1
+        while counter != complete[i] :
+            stack1.append(i)
+            print('+')
+            counter += 1
+        counter = 0
+        while stack1[-1] == complete[i + counter] :
+            output.append(stack1.pop())
+            print('-')
+            counter += 1
+    stack1.append
 for i in range(number) :
     stack1.append(int(input()))
 
