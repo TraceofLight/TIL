@@ -5,7 +5,7 @@ need_cup = 0
 checker = False
 
 while n > 0 :
-    if n >= 2 ** counter and n < 2 ** (counter + 1) :
+    if n < 2 ** (counter + 1) :
         cup.append(counter)
         n = n - 2 ** counter
         counter = 0
@@ -19,7 +19,7 @@ while now_cup > k :
         low_number = cup.pop()
         need_cup += 2 ** (low_number)
         cup.append(low_number + 1)
-        if len(cup) > 2 :
+        if now_cup > 2 :
             new_counter = 1
             while cup[-1] == cup[-2] :
                 cup.pop()
