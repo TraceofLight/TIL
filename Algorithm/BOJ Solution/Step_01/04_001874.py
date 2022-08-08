@@ -1,41 +1,43 @@
+import sys
+
 number = int(input())
-complete = []
-for i in number :
-    complete.append(int(input()))
+arr_target = []
 stack1 = []
+stack_result = []
 output = []
 counter = 0
-
-while output != complete :
-    for i in range(number) :
-        counter = 1
-        while counter != complete[i] :
-            stack1.append(i)
-            print('+')
-            counter += 1
-        counter = 0
-        while stack1[-1] == complete[i + counter] :
-            output.append(stack1.pop())
-            print('-')
-            counter += 1
-    stack1.append
-for i in range(number) :
-    stack1.append(int(input()))
+stack_length = 0
+length = number
+checker = False
 
 for i in range(number) :
-    while number != output[i] :
-        stack1.append(i)
-    if number == 0:
-        pass
+    arr_target.append(int(sys.stdin.readline()))
 
-        while stack1[i] > number :
-            number += 1
-        output.append(number)
-    elif stack1[i] < number :
-        while True:
-            pass
-    number += 1
-    43687
-    125
-    12578
-    436
+rev_arr_target = list(reversed(arr_target))
+
+while length != 0 :
+    while counter < rev_arr_target[-1] :
+        counter += 1
+        stack1.append(counter)
+        stack_length += 1
+        output.append('+')
+        if counter > number :
+            checker == True
+            break
+    if rev_arr_target[-1] < stack1[-1] :
+        checker = True
+    if checker == True :
+        break
+    while rev_arr_target[-1] == stack1[-1] and length != 0 :
+        stack_result.append(stack1.pop())
+        rev_arr_target.pop()
+        length -= 1
+        stack_length -= 1
+        output.append('-')
+        if length == 0 or stack_length == 0 :
+            break
+
+if checker == False and stack_result == arr_target :
+    print(*output, sep = '\n')
+else :
+    print('NO')
