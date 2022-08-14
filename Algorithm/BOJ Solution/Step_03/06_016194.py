@@ -21,7 +21,7 @@ def buy_card(val):
                 cost_list = []
                 for idx in range(length):
                     cost_list.append(cardset_price[idx] + val_list[length - idx - 1])
-                val_list.append(max(cost_list))
+                val_list.append(min(cost_list))
                 length += 1
             return val_list[val]
         else:
@@ -29,7 +29,7 @@ def buy_card(val):
                 cost_list = []
                 for idx in range(length):
                     cost_list.append(val_list[length - idx - 1] + cardset_price[idx])
-                val_list.append(max(cost_list))
+                val_list.append(min(cost_list))
                 length += 1
             for idx in range(card_types, val + 1):
                 repeat_counter = idx // card_types
