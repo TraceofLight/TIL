@@ -196,3 +196,8 @@ for idx, element in enumerate(['가', '나', '다']) :
 조건을 만족하는 최대 최소값을 구하는 방법
 이진탐색 등으로 큰 범위의 탐색을 진행한 이후 매개변수값을 조여서 다시 탐색 진행
 
+## - 파이썬 재귀 제한 푸는 법
+
+```python
+sys.setrecursionlimit(integer)
+```
