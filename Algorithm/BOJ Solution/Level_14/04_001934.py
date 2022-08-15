@@ -29,3 +29,5 @@ for i in range(testCase) :
     output.append(result)
 
 print(*output, sep = '\n')
+
+# 이 문제는 알고리즘 강의 풀이 리스트에도 존재
