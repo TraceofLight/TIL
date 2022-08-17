@@ -1,52 +1,42 @@
-'''
-from collections import deque
-
-graph_list = {1: set([3, 4]),
-              2: set([3, 4, 5]),
-              3: set([1, 5]),
-              4: set([1]),
-              5: set([2, 6]),
-              6: set([3, 5])}
-root_node = 1
-
-def BFS_with_adj_list(graph, root):
-    visited = []
-    queue = deque([root])
-
-    while queue:
-        n = queue.popleft()
-        if n not in visited:
-            visited.append(n)
-            queue += graph[n] - set(visited)
-    return visited
-  
-print(BFS_with_adj_list(graph_list, root_node))
-'''
-
 import sys
 from collections import deque
 
-NodeNumber, LineNumber, StartNode = list(map(int,sys.stdin.readline().split()))
+node_number, line_number, init_node = map(int, sys.stdin.readline().split())
 
-NodeList = [set() for i in range(NodeNumber)]
+graph = [set() for _ in range(node_number)]
+node_set = set()
 
-for number in range(LineNumber) :
-    idx, destination = list(map(int, sys.stdin.readline().split()))
-    NodeList[idx].add(destination)
+def dfs(node_num, graph_list, start):
+    visited = [False for _ in range(node_num)]
+    result = []
+    progress_que = deque([])
 
-visited = []
-def BFS(NodeList, node, NodeNumber) :
-    global visited
-    queue = deque([node])
+    progress_que.append(start - 1)
+    while progress_que != deque([]):
+        progress_idx = progress_que.pop()
+        if not visited[progress_idx]:
+            visited[progress_idx] = True
+            result.append(progress_idx + 1)
+            for node in sorted(list(graph_list[progress_idx]), key=lambda x:-x):
+                    progress_que.append(node)
+    
+    return result
 
-    while queue :
-        if len(visited) == NodeNumber :
-            return visited
-        number = queue.popleft()
-        if number not in visited :
-            visited.append(number)
-            if NodeList[number - 1] != set() :
-                queue += NodeList[number - 1] - set(visited)
-    return BFS(NodeList, visited, NodeNumber)
+def bfs(node_num, graph_list, start):
+    visited = [False for _ in range(node_num)]
+    result = []
+    progress_que = deque([])
 
-print(BFS(NodeList, StartNode, NodeNumber))
+    progress_que.append(start - 1)
+    while progress_que != deque([]):
+        progress_idx = progress_que.popleft()
+        if not visited[progress_idx]:
+            visited[progress_idx] = True
+            result.append(progress_idx + 1)
+            for node in sorted(list(graph_list[progress_idx])):
+                    progress_que.append(node)
+    
+    return result
+
+print(*dfs(node_number, graph, init_node))
+print(*bfs(node_number, graph, init_node))
