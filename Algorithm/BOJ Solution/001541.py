@@ -1,17 +1,21 @@
 import sys
 import math
-formula = sys.stdin.readline().strip()
+formula_raw = sys.stdin.readline().strip()
 stack1 = []
 
-formula = formula.replace('-', '*-')
-formula = formula.replace('+', '*')
+formula_raw = formula_raw.replace('-', '*-')
+formula_raw = formula_raw.replace('+', '*')
 
-formula = list(formula.split('*'))
-new_list = []
+formula_raw = list(formula_raw.split('*'))
+formula = []
 
-for chr in formula:
-    if chr.isnumeric():
-        new_list.append(int(chr))
-    else:
-        new_list.append(chr)
-print(new_list)
+get_minus = []
+counter = 0
+for chr in formula_raw:
+    formula.append(int(chr))
+    counter += 1
+    if int(chr) < 0:
+        get_minus.append(counter)
+
+for idx in range(1):
+    pass
