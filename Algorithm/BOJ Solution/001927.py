@@ -9,24 +9,46 @@ for order in range(order_number):
     if input_order == 0:
         if len(min_heap) == 0:
             pop_list.append(0)
-            print(min_heap)
         else:
-            pop_list.append(min_heap.popleft())
-            root_node = min_heap[0]
-            start_node = root_node
-            last_node = min_heap[-1]
-            print(min_heap)
+            get_pop = min_heap[0]
+            pop_list.append(get_pop)
+            min_heap[0] = min_heap[-1]
+            min_heap.pop()
+            last_idx = len(min_heap)
+            cursor = 1
+            while True:
+                if 2 * cursor < last_idx:
+                    if min_heap[2 * cursor - 1] <= min_heap[2 * cursor]:
+                        if min_heap[cursor - 1] > min_heap[2 * cursor - 1]:
+                            min_heap[cursor - 1], min_heap[2 * cursor - 1] = min_heap[2 * cursor - 1], min_heap[cursor - 1]
+                            cursor = 2 * cursor
+                            continue
+                        else:
+                            break
+                    else:
+                        if min_heap[cursor - 1] > min_heap[2 * cursor]:
+                            min_heap[cursor - 1], min_heap[2 * cursor] = min_heap[2 * cursor], min_heap[cursor - 1]
+                            cursor = 2 * cursor + 1
+                            continue
+                        else:
+                            break
+                elif 2 * cursor - 1 < last_idx:
+                    if min_heap[cursor - 1] > min_heap[2 * cursor - 1]:
+                        min_heap[cursor - 1], min_heap[2 * cursor - 1] = min_heap[2 * cursor - 1], min_heap[cursor - 1]
+                        cursor = 2 * cursor
+                        continue
+                    else:
+                        break
+                else:
+                    break
     else:
         min_heap.append(input_order)
         cursor = len(min_heap)
-        last_idx = cursor
         while cursor > 1:
-            cursor //= 2
-            if min_heap[cursor - 1] > min_heap[last_idx - 1]:
-                min_heap[cursor - 1], min_heap[last_idx - 1] = min_heap[last_idx - 1], min_heap[cursor - 1]
-                last_idx = cursor
+            if min_heap[cursor - 1] < min_heap[cursor // 2 - 1]:
+                min_heap[cursor - 1], min_heap[cursor // 2 - 1] = min_heap[cursor // 2 - 1], min_heap[cursor - 1]
+                cursor = cursor // 2
             else:
-                break
-        print(min_heap)
+                cursor = cursor // 2
 
 print(*pop_list, sep='\n')
