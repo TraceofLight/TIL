@@ -5,6 +5,31 @@ output = []
 
 for case_each in range(testcase):
     get_value = False
+    m, n, target_m, target_n = map(int, sys.stdin.readline().strip('\n').split())
+    max_number = math.lcm(m, n)
+    is_finish = False
+    for idx in range(target_m, max_number + 1, m):
+        n_output = idx % n
+        if n_output == 0:
+            n_output = n
+        if n_output == target_n:
+            output.append(idx)
+            is_finish = True
+            break
+    if not is_finish:
+        output.append(-1)
+
+print(*output, sep = '\n')
+
+'''
+# 중국인의 나머지 정리 시도
+import sys
+import math
+testcase = int(sys.stdin.readline())
+output = []
+
+for case_each in range(testcase):
+    get_value = False
     m, n, target_m, target_n = map(int, sys.stdin.readline().split())
     if m == n:
         if target_m <= m and target_n <= n and m == n and target_m == target_n:
@@ -22,7 +47,6 @@ for case_each in range(testcase):
         target_n %= n
         mod_m = lcm_number // m
         mod_n = lcm_number // n
-        '''
         counter1 = 1
         while (counter1 * mod_m) % m != 1:
             print(counter1)
@@ -31,7 +55,6 @@ for case_each in range(testcase):
         while (counter2 * mod_n) % n != 1:
             print(counter2)
             counter2 += 1
-        '''
         counter1 = (m - 1) * abs((mod_m % m) - m)
         counter2 = (n - 1) * abs((mod_n % n) - n)
         result = ((target_m * mod_m * (counter1)) +
@@ -48,30 +71,6 @@ for case_each in range(testcase):
         if get_value == False:
             output.append(-1)
             continue
-
-print(*output, sep = '\n')
-
-'''
-import sys
-import math
-testcase = int(sys.stdin.readline())
-output = []
-
-for case_each in range(testcase):
-    get_value = False
-    m, n, target_m, target_n = map(int, sys.stdin.readline().split())
-    max_number = math.lcm(m, n)
-    for idx_m in range(max_number // m):
-        for idx_n in range(max_number // n):
-            if m * idx_m + target_m == n * idx_n + target_n:
-                output.append(m * idx_m + target_m)
-                get_value = True
-            if get_value:
-                break
-        if get_value:
-            break
-    if not get_value:
-        output.append(-1)
 
 print(*output, sep = '\n')
 '''

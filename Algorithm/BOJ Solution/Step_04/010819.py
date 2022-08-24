@@ -11,7 +11,6 @@ def permutation(number_list, select):
     for idx in range(len(number_list)):
         element = number_list[idx]
         for other in permutation(number_list[:idx] + number_list[idx + 1:], select - 1):
-            
             result.append([element] + other)
     return result
 
