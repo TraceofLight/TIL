@@ -6,10 +6,11 @@ output = []
 
 for each_case in range(testcase):
     length = 0
-    order_number = int(sys.stdin.readline())
+    order_number = int(sys.stdin.readline().strip('\n'))
     priority_que_high = []
     priority_que_low = []
-    del_list = []
+    del_heap_high = []
+    del_heap_low = []
     for _ in range(order_number):
         order_type, target = sys.stdin.readline().strip('\n').split()
         target = int(target)
@@ -20,23 +21,21 @@ for each_case in range(testcase):
         elif order_type == 'D':
             if not length:
                 continue
-            if length == 1:
-                priority_que_high.clear()
-                priority_que_low.clear()
-                length -= 0
             elif target == 1:
-                heappush(del_list,-heappop(priority_que_high))
+                heappush(del_heap_high, heappop(priority_que_high))
                 length -= 1
             elif target == -1:
-                heappush(del_list,heappop(priority_que_low))
+                heappush(del_heap_low, -heappop(priority_que_low))
                 length -= 1
     if not length:
         output.append([])
     else:
-        while -priority_que_high[0] in del_list:
+        while priority_que_high and del_heap_low and priority_que_high[0] == -del_heap_low[0]:
             heappop(priority_que_high)
-        while priority_que_low[0] in del_list:
+            heappop(del_heap_low)
+        while priority_que_low and del_heap_high and priority_que_low[0] == -del_heap_high[0]:
             heappop(priority_que_low)
+            heappop(del_heap_high)
         output.append([-priority_que_high[0], priority_que_low[0]])
 for result in output:
     if not result:
