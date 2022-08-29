@@ -1,4 +1,20 @@
-# 구현을 통한 문제 풀이 
+# DP
+
+import sys
+
+house_number = int(sys.stdin.readline())
+cost_list = []
+for _ in range(house_number):
+    cost_list.append(list(map(int, sys.stdin.readline().split())))
+
+val_list = [[cost_list[0][0], cost_list[0][1], cost_list[0][2]]]
+
+for idx in range(1, house_number):
+    val_list.append([min(val_list[idx - 1][1] + cost_list[idx][0], val_list[idx - 1][2] + cost_list[idx][0]),
+                    min(val_list[idx - 1][0] + cost_list[idx][1], val_list[idx - 1][2] + cost_list[idx][1]),
+                    min(val_list[idx - 1][0] + cost_list[idx][2], val_list[idx - 1][1] + cost_list[idx][2])])
+
+print(min(val_list[house_number - 1]))
 
 '''
 # BFS를 통한 문제 풀이 - 시간 초과
@@ -6,7 +22,7 @@
 import sys
 from collections import deque
 
-house_number = int(sys.stdin.readline())
+house_number = int(sys.stdin.readline())l
 cost_list = []
 for _ in range(house_number):
     cost_list.append(list(map(int, sys.stdin.readline().split())))
@@ -34,47 +50,4 @@ while progress_que:
                 now_index[2] + cost_list[now_index[0]][number]])
 
 print(result)
-'''
-
-'''
-# DP : 최소값만 골라서는 불가능한 케이스 존재
-import sys
-
-house_number = int(sys.stdin.readline())
-cost_list = []
-for _ in range(house_number):
-    cost_list.append(list(map(int, sys.stdin.readline().split())))
-
-
-def choose_house(now_position, selection_cost_list):
-    list = []
-    for element in selection_cost_list:
-        if element == now_position:
-            continue
-        else:
-            list.append(element)
-    return list
-
-
-output = float('inf')
-color_list = [0, 1, 2]
-for idx in range(3):
-    counter = 1
-    result = cost_list[0][idx]
-    last_idx = idx
-    while counter <= house_number - 1:
-        cost_val = []
-        for color_index in choose_house(last_idx, color_list):
-            cost_val.append([cost_list[counter][color_index], color_index])
-        if cost_val[0][0] <= cost_val[1][0]:
-            result += cost_val[0][0]
-            last_idx = cost_val[0][1]
-        else:
-            result += cost_val[1][0]
-            last_idx = cost_val[1][1]
-        counter += 1
-    if result < output:
-        output = result
-
-print(output)
 '''
