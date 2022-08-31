@@ -1,3 +1,5 @@
+# 스타트와 링크
+
 import sys
 from itertools import combinations
 
