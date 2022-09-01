@@ -201,3 +201,18 @@ for idx, element in enumerate(['가', '나', '다']) :
 ```python
 sys.setrecursionlimit(integer)
 ```
+
+## - Binary Tree
+
+preorder, inorder, postorder 전위, 중위, 후위 순회의 종류가 존재
+
+재귀의 형태로 구현 가능
+
+```python
+# 대략적인 형태 구현
+
+def postorder(list, node_number):
+    postorder(left)
+    postorder(right)
+    node_number
+```
