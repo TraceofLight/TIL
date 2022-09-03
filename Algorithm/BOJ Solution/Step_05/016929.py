@@ -1,3 +1,5 @@
+# Two Dots
+
 import sys
 
 # 델타 이동 리스트 선언
