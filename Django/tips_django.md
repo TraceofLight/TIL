@@ -17,3 +17,7 @@ local - third_party - Django app 순으로 작성
 1. 반드시 생성 후 등록
 
 2. local - third_party - Django app 작성 서순 지켜줄 것 (추후 복잡해질 경우 필요)
+
+## os.path vs Pathlib
+
+Pathlib은 python 3.4에 추가된 기능으로 os.path보다 훨씬 직관적으로 파일경로를 나타낼 수 있다!
