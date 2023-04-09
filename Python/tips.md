@@ -30,7 +30,7 @@ greeting(age=24, '민수')
 
 (print와 다름에 주의)
 
-### - 가변 인자 리스트 (*args)
+## - 가변 인자 리스트 (*args)
 
 arguments는 전부 하나의 tuple 자료형으로 사용됨
 
@@ -215,4 +215,16 @@ def postorder(list, node_number):
     postorder(left)
     postorder(right)
     node_number
+```
+
+## - 딕셔너리와 리스트의 시간복잡도
+
+기본적으로 딕셔너리와 리스트의 시간복잡도는 딕셔너리가 빠르다고 알고 있다.
+
+하지만 정확히 한 키값, index값을 확인하는 경우 리스트가 훨씬 빠른 접근이 가능하다.
+
+```python
+list_here = [a]
+dict_here = {0: a}
+# list_here[0]가 dict_here[0]보다 훨씬 빠른 접근이 가능
 ```
